@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Knowledge Base | Julls Digital Meru</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bs-primary: #1E3A8A; 
+            --bs-accent: #F97316; 
+            --bs-light-bg: #F8FAFC;
+        }
+        body { font-family: 'Montserrat', sans-serif; padding-top: 80px; background-color: var(--bs-light-bg); }
+        
+        #main-navbar { background-color: var(--bs-primary); }
+        .text-accent { color: var(--bs-accent) !important; }
+
+        /* Search Bar Styling */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+        .search-input {
+            border-radius: 50px;
+            padding: 15px 25px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .search-input:focus {
+            border-color: var(--bs-accent);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
+        }
+
+        /* Sidebar Nav Styling */
+        .nav-pills .nav-link {
+            color: var(--bs-primary);
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--bs-primary);
+            color: white;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            min-height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><span class="text-accent">Julls</span> Digital</a>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold text-primary">Digital Learning Hub</h1>
+            <p class="lead">Instant answers to your web and branding questions.</p>
+        </div>
+
+        <div class="search-container">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0 rounded-start-pill px-3">
+                    <i class="fas fa-search text-muted"></i>
+                </span>
+                <input type="text" id="blogSearch" class="form-control border-start-0 rounded-end-pill search-input" placeholder="Search topics (e.g. SEO, Branding, Websites)...">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
+                    
+                    <button class="nav-link active text-start blog-item" data-bs-toggle="pill" data-bs-target="#post1" type="button">
+                        <i class="fas fa-rocket me-2"></i> Why Meru Businesses Need Websites
+                    </button>
+
+                    <button class="nav-link text-start blog-item" data-bs-toggle="pill" data-bs-target="#post2" type="button">
+                        <i class="fas fa-search me-2"></i> SEO Guide for Kenyan Startups
+                    </button>
+
+                    <button class="nav-link text-start blog-item" data-bs-toggle="pill" data-bs-target="#post3" type="button">
+                        <i class="fas fa-paint-brush me-2"></i> The Power of Branding
+                    </button>
+
+                </div>
+                <p id="noResults" class="text-muted mt-3 d-none">No topics match your search.</p>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="tab-content content-card" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="post1">
+                        <h2 class="fw-bold text-primary">Why Meru Businesses Need Websites</h2>
+                        <hr>
+                        <p>Detailed explanation goes here...</p>
+                    </div>
+
+                    <div class="tab-pane fade" id="post2">
+                        <h2 class="fw-bold text-primary">SEO Guide for Kenyan Startups</h2>
+                        <hr>
+                        <p>Detailed explanation goes here...</p>
+                    </div>
+
+                    <div class="tab-pane fade" id="post3">
+                        <h2 class="fw-bold text-primary">The Power of Branding</h2>
+                        <hr>
+                        <p>Detailed explanation goes here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-top py-4 text-center">
+        <p class="mb-0 text-muted">&copy; 2026 Julls Digital.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('blogSearch').addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let listItems = document.querySelectorAll('.blog-item');
+            let noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            listItems.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    item.classList.remove('d-none');
+                    visibleCount++;
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+
+            // Show "No Results" message if everything is hidden
+            if (visibleCount === 0) {
+                noResults.classList.remove('d-none');
+            } else {
+                noResults.classList.add('d-none');
+            }
+        });
+    </script>
+</body>
+</html>
