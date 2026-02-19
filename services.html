@@ -12,39 +12,18 @@
 
     <style>
         :root {
-            --bs-primary: #1E3A8A; /* Deep Blue */
-            --bs-secondary-dark: #0F172A; /* Dark Charcoal for footer background */
-            --bs-accent: #F97316; /* Vibrant Orange */
+            --bs-primary: #1E3A8A; 
+            --bs-secondary-dark: #0F172A; 
+            --bs-accent: #F97316; 
             --bs-light: #F8FAFC;
             --bs-font-sans-serif: 'Montserrat', sans-serif;
         }
 
-        body {
-            font-family: var(--bs-font-sans-serif);
-            padding-top: 70px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
+        body { font-family: var(--bs-font-sans-serif); padding-top: 70px; display: flex; flex-direction: column; min-height: 100vh; }
         main { flex: 1; }
-
         .text-accent { color: var(--bs-accent) !important; }
         .bg-primary { background-color: var(--bs-primary) !important; }
         .footer-bg { background-color: var(--bs-secondary-dark); color: var(--bs-light); }
-
-        /* Navigation */
-        #main-navbar { background-color: var(--bs-primary); }
-        #main-navbar .nav-link { color: var(--bs-light) !important; transition: color 0.2s; }
-        #main-navbar .nav-link:hover, #main-navbar .nav-link.active { color: var(--bs-accent) !important; }
-
-        .btn-accent-outline {
-            background-color: transparent;
-            border: 2px solid var(--bs-accent);
-            color: var(--bs-accent);
-            font-weight: 700;
-        }
-        .btn-accent-outline:hover { background-color: var(--bs-accent); color: white; }
 
         /* --- WAVE FLOATING ANIMATION --- */
         @keyframes waveFloat {
@@ -53,14 +32,10 @@
         }
 
         .service-card {
-            border: none;
-            border-radius: 20px;
-            transition: all 0.4s ease;
-            animation: waveFloat 6s ease-in-out infinite;
-            background: #ffffff;
+            border: none; border-radius: 20px; transition: all 0.4s ease;
+            animation: waveFloat 6s ease-in-out infinite; background: #ffffff;
         }
 
-        /* Wave effect delays */
         .col-lg-3:nth-child(1) .service-card { animation-delay: 0s; }
         .col-lg-3:nth-child(2) .service-card { animation-delay: 1.5s; }
         .col-lg-3:nth-child(3) .service-card { animation-delay: 3s; }
@@ -72,6 +47,11 @@
             box-shadow: 0 15px 45px rgba(0,0,0,0.1) !important;
         }
 
+        /* Portfolio & Pricing Styles */
+        .pricing-card { border-radius: 20px; transition: transform 0.3s; border: 1px solid #eee; }
+        .pricing-card:hover { transform: translateY(-10px); }
+        .project-card img { height: 250px; object-fit: cover; }
+
         /* WhatsApp Float */
         .float-wa {
             position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
@@ -81,11 +61,9 @@
         }
         .my-float { margin-top: 16px; }
 
-        /* Footer Specifics (Restored) */
-        .footer-link { color: #ccc; text-decoration: none; transition: color 0.3s ease; }
+        /* Footer Links */
+        .footer-link { color: #ccc; text-decoration: none; transition: 0.3s; }
         .footer-link:hover { color: var(--bs-accent); }
-        .social-icon { font-size: 1.5rem; margin-right: 15px; color: white; transition: color 0.3s ease; }
-        .social-icon:hover { color: var(--bs-accent); }
     </style>
 </head>
 <body>
@@ -96,21 +74,14 @@
 
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <span class="text-accent">Julls</span> Digital
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand fw-bold" href="index.html"><span class="text-accent">Julls</span> Digital</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="nav-link btn btn-accent-outline px-4" href="contact.html">Contact Us</a>
-                    </li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-outline-light px-4" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -120,7 +91,7 @@
         <section class="py-5 text-center bg-primary text-white">
             <div class="container">
                 <h1 class="display-4 fw-bold">Our Digital <span class="text-accent">Services</span></h1>
-                <p class="lead">Expertise across branding, development, and visual communication.</p>
+                <p class="lead">Results-driven branding and development for the modern Kenyan business.</p>
             </div>
         </section>
 
@@ -129,55 +100,153 @@
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-6">
                         <div class="card service-card h-100 shadow-sm p-4">
-                            <h4 class="fw-bold text-accent">Branding</h4>
-                            <p class="small text-muted">Strategic identity systems that build trust.</p>
+                            <i class="fas fa-bullhorn fa-2x text-accent mb-3"></i>
+                            <h4 class="fw-bold">Branding</h4>
+                            <p class="small text-muted">Identity systems that turn viewers into loyal fans.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="card service-card h-100 shadow-sm p-4">
-                            <h4 class="fw-bold text-accent">Web Dev</h4>
-                            <p class="small text-muted">Responsive sites optimized for lead conversion.</p>
+                            <i class="fas fa-laptop-code fa-2x text-accent mb-3"></i>
+                            <h4 class="fw-bold">Web Dev</h4>
+                            <p class="small text-muted">High-performance sites with native M-Pesa integration.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="card service-card h-100 shadow-sm p-4">
-                            <h4 class="fw-bold text-accent">Graphics</h4>
-                            <p class="small text-muted">High-quality visual assets for all platforms.</p>
+                            <i class="fas fa-pen-nib fa-2x text-accent mb-3"></i>
+                            <h4 class="fw-bold">Graphics</h4>
+                            <p class="small text-muted">Stunning visual assets for social media and print.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="card service-card h-100 shadow-sm p-4">
-                            <h4 class="fw-bold text-accent">Local SEO</h4>
-                            <p class="small text-muted">Rank higher for targeted local customers.</p>
+                            <i class="fas fa-search-location fa-2x text-accent mb-3"></i>
+                            <h4 class="fw-bold">Local SEO</h4>
+                            <p class="small text-muted">Dominate search results across Meru and Kenya.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="p-4 border-start border-primary border-4 bg-light rounded-3">
+                            <h3 class="fw-bold mb-3"><i class="fas fa-code text-primary me-2"></i> Web Development</h3>
+                            <p class="text-muted">We build more than just websites; we build business tools.</p>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Optimized for 3G/4G Mobile Speeds</li>
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> M-Pesa & Card Payment Integration</li>
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Secure Admin Dashboard for Client Updates</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="p-4 border-start border-accent border-4 bg-light rounded-3">
+                            <h3 class="fw-bold mb-3"><i class="fas fa-gem text-accent me-2"></i> Brand Identity</h3>
+                            <p class="text-muted">A cohesive brand is the foundation of customer trust.</p>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Primary & Secondary Logo Suites</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Detailed Brand Style Guides (PDF)</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Ready-to-use Social Media Templates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Featured <span class="text-accent">Projects</span></h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card project-card border-0 shadow-sm overflow-hidden rounded-4">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800" class="card-img-top" alt="Web Project">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold">E-Commerce Solution</h5>
+                                <p class="small text-muted">Full retail platform with automated checkout for a Meru-based client.</p>
+                                <span class="badge bg-primary">Web Dev</span> <span class="badge bg-dark">M-Pesa</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card project-card border-0 shadow-sm overflow-hidden rounded-4">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800" class="card-img-top" alt="Branding Project">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold">Safari Branding Kit</h5>
+                                <p class="small text-muted">Complete visual identity for a luxury travel agency.</p>
+                                <span class="badge bg-accent">Branding</span> <span class="badge bg-dark">Graphics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5"><h2 class="fw-bold">Service <span class="text-accent">Packages</span></h2></div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card pricing-card p-4 text-center">
+                            <h5 class="fw-bold">Starter</h5>
+                            <div class="h2 fw-bold text-accent my-3">Ksh 15k+</div>
+                            <p class="small text-muted mb-4">Perfect for landing pages and small brand identities.</p>
+                            <a href="contact.html" class="btn btn-outline-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card pricing-card p-4 text-center bg-primary text-white border-0 shadow-lg">
+                            <h5 class="fw-bold">Professional</h5>
+                            <div class="h2 fw-bold text-accent my-3">Ksh 45k+</div>
+                            <p class="small mb-4">Complete business websites with SEO and brand guidelines.</p>
+                            <a href="contact.html" class="btn btn-accent w-100 text-white" style="background: var(--bs-accent);">Best Value</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card pricing-card p-4 text-center">
+                            <h5 class="fw-bold">Enterprise</h5>
+                            <div class="h2 fw-bold text-accent my-3">Bespoke</div>
+                            <p class="small text-muted mb-4">Custom software and large-scale digital transformations.</p>
+                            <a href="contact.html" class="btn btn-outline-primary w-100">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5"><h2 class="fw-bold">Common <span class="text-accent">Questions</span></h2></div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion accordion-flush rounded-4 overflow-hidden shadow-sm" id="faqAcc">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f1">How long does a website take?</button></h2>
+                                <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body text-muted">Standard sites take 14–21 days from strategy to launch.</div></div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#f2">Do you accept M-Pesa payments?</button></h2>
+                                <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body text-muted">Yes, we accept M-Pesa, Bank Transfers, and 50/50 payment structures.</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="py-5">
-            <div class="container text-center">
-                <h2 class="fw-bold mb-5">Our <span class="text-accent">Process</span></h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="p-4 bg-white shadow-sm rounded-4 border-top border-accent border-4">
-                            <h5 class="fw-bold">Strategy</h5>
-                            <p class="small text-muted">Goal definition and competitor analysis.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="p-4 bg-white shadow-sm rounded-4 border-top border-primary border-4">
-                            <h5 class="fw-bold">Execution</h5>
-                            <p class="small text-muted">Precision design and development.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="p-4 bg-white shadow-sm rounded-4 border-top border-accent border-4">
-                            <h5 class="fw-bold">Growth</h5>
-                            <p class="small text-muted">Launch and continuous optimization.</p>
-                        </div>
-                    </div>
+            <div class="container">
+                <div class="bg-primary p-5 rounded-5 text-center text-white shadow-lg">
+                    <h2 class="fw-bold">Ready to Grow your <span class="text-accent">Brand?</span></h2>
+                    <p class="mb-4">Let's build something extraordinary together.</p>
+                    <a href="contact.html" class="btn btn-accent btn-lg px-5 py-3 text-white" style="background: var(--bs-accent);">Start Your Project</a>
                 </div>
             </div>
         </section>
@@ -186,54 +255,40 @@
     <footer class="footer-bg py-5 mt-auto">
         <div class="container">
             <div class="row">
-                
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h4 class="fw-bold mb-3">
-                        <span class="text-accent">Julls</span> Digital
-                    </h4>
-                    <p class="small text-muted">
-                        Innovate. Design. Grow. We partner with ambitious brands to craft powerful, future-proof digital experiences.
-                    </p>
+                    <h4 class="fw-bold mb-3"><span class="text-accent">Julls</span> Digital</h4>
+                    <p class="small text-muted">Innovate. Design. Grow. We partner with ambitious brands to craft powerful, future-proof digital experiences.</p>
                 </div>
-                
                 <div class="col-6 col-md-3 col-lg-2 offset-lg-1 mb-4 mb-lg-0">
                     <h5 class="fw-bold mb-3 text-white">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="home.html" class="footer-link">Home</a></li>
-                        <li class="mb-2"><a href="index.html" class="footer-link">About Us</a></li>
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
                         <li class="mb-2"><a href="services.html" class="footer-link">Our Services</a></li>
                         <li class="mb-2"><a href="contact.html" class="footer-link">Get a Quote</a></li>
                     </ul>
                 </div>
-
                 <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
                     <h5 class="fw-bold mb-3 text-white">Expertise</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><span class="footer-link">Branding Strategy</span></li>
                         <li class="mb-2"><span class="footer-link">Web Development</span></li>
                         <li class="mb-2"><span class="footer-link">Digital Graphics</span></li>
-                        <li class="mb-2"><span class="footer-link">SEO & Content</span></li>
                     </ul>
                 </div>
-                
                 <div class="col-lg-3">
                     <h5 class="fw-bold mb-3 text-white">Connect</h5>
                     <p class="small text-muted mb-3">hello@jullsdigital.com</p>
-                    
                     <div class="d-flex">
-                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
-
             </div>
-
             <hr class="mt-4 mb-3 border-secondary">
-            <div class="text-center small text-muted">
-                &copy; 2025 Julls Digital. All rights reserved. | <a href="#" class="footer-link small">Privacy Policy</a>
-            </div>
+            <div class="text-center small text-muted">&copy; 2026 Julls Digital. All rights reserved.</div>
         </div>
     </footer>
 
