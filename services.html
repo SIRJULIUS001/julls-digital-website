@@ -25,16 +25,11 @@
         .bg-primary { background-color: var(--bs-primary) !important; }
         .footer-bg { background-color: var(--bs-secondary-dark); color: var(--bs-light); }
 
-        /* --- NAVBAR CORRECTION --- */
+        /* --- NAVBAR FIXED TO SOLID BLUE --- */
         #main-navbar { 
-            background-color: transparent; /* Starts clear */
-            transition: background-color 0.4s ease, box-shadow 0.4s ease; 
-        }
-
-        /* This class is triggered by the script below when you scroll */
-        .nav-scrolled { 
             background-color: var(--bs-primary) !important; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: none; 
         }
 
         #main-navbar .nav-link { color: var(--bs-light) !important; transition: color 0.2s; }
@@ -304,16 +299,5 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        const navbar = document.getElementById('main-navbar');
-        window.onscroll = function() {
-            if (window.pageYOffset > 50) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        };
-    </script>
 </body>
 </html>
