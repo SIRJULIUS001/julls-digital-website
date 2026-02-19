@@ -2,304 +2,161 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- CRITICAL for responsiveness: ensures the page scales correctly on all devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Julls Digital | Web Design ,SEO & Branding Agency in Meru, Kenya</title>
-    <meta name="description" content="Julls Digital is a top-rated digital agency in Meru, Kenya. We specialize in professional web design, SEO optimization, and creative branding to help your business grow.">
-    <!-- Bootstrap CSS for responsiveness and component styling -->
+    <title>Contact Julls Digital | Web Design & Branding Meru</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts - Montserrat -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Custom CSS (copied from style.css for branding colors) -->
+
     <style>
         :root {
-            --bs-primary: #1E3A8A; /* Deep Blue */
-            --bs-accent: #F97316; /* Vibrant Orange */
+            --bs-primary: #1E3A8A; 
+            --bs-accent: #F97316; 
+            --bs-secondary-dark: #0F172A; 
             --bs-light: #F8FAFC;
             --bs-font-sans-serif: 'Montserrat', sans-serif;
         }
-        body {
-            font-family: var(--bs-font-sans-serif);
-            padding-top: 70px; /* Space for the fixed navbar */
+        body { font-family: var(--bs-font-sans-serif); padding-top: 70px; display: flex; flex-direction: column; min-height: 100vh; }
+        main { flex: 1; }
+        .text-accent { color: var(--bs-accent) !important; }
+        
+        /* Navbar - Maintaining your exact branding */
+        #main-navbar { background-color: var(--bs-primary); }
+        #main-navbar .nav-link:hover, #main-navbar .nav-link.active { color: var(--bs-accent) !important; }
+        .btn-accent-outline { border: 2px solid var(--bs-accent); color: var(--bs-accent); font-weight: 700; background: transparent; }
+        .btn-accent-outline:hover { background-color: var(--bs-accent); color: white; }
+
+        /* Contact Section Styles */
+        .btn-whatsapp-main { background-color: #25d366; color: white; font-weight: 700; border: none; transition: 0.3s; }
+        .btn-whatsapp-main:hover { background-color: #128c7e; transform: translateY(-3px); color: white; }
+        
+        .contact-card { border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 12px; transition: 0.3s; background: white; }
+        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
         }
-        .text-accent {
-            color: var(--bs-accent) !important;
-        }
-        /* Navigation Styling */
-        #main-navbar {
-            background-color: var(--bs-primary);
-        }
-        #main-navbar .navbar-brand {
-            font-size: 1.5rem;
-        }
-        #main-navbar .nav-link {
-            color: var(--bs-light) !important;
-            padding: 0.5rem 1rem;
-            transition: color 0.2s;
-        }
-        #main-navbar .nav-link:hover,
-        #main-navbar .nav-link.active {
-            color: var(--bs-accent) !important;
-        }
-        .btn-accent-outline {
-            background-color: transparent;
-            border: 2px solid var(--bs-accent);
-            color: var(--bs-accent);
-            font-weight: 700;
-        }
-        .btn-accent-outline:hover {
-            background-color: var(--bs-accent);
-            color: white;
-        }
+        .whatsapp-float:hover { transform: scale(1.1); color: white; }
+
+        .footer-bg { background-color: var(--bs-secondary-dark); color: var(--bs-light); }
+        .footer-link { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-link:hover { color: var(--bs-accent); }
     </style>
 </head>
 <body>
 
-    <!-- Responsive Navigation Bar -->
-    <!-- 
-        navbar-expand-lg: Ensures the navigation links collapse into a hamburger menu
-                          on screens SMALLER than 'large' (lg), which includes tablets and phones.
-        fixed-top: Locks the navigation bar to the top of the viewport.
-    -->
+    <a href="https://wa.me/254790322045" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
         <div class="container">
-            <!-- Brand Name / Logo -->
-            <a class="navbar-brand fw-bold" href="home.html">
+            <a class="navbar-brand fw-bold" href="index.html">
                 <span class="text-accent">Julls</span> Digital
             </a>
-            
-            <!-- Toggler Button (The "Hamburger" Menu Icon) -->
-            <!-- 
-                This button appears when the screen size is smaller than 'lg' (tablet/mobile).
-                data-bs-target="#navbarNav" links it to the collapsible content below.
-            -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <!-- Collapsible Content (The Links) -->
-            <!-- 
-                The 'collapse navbar-collapse' class makes this div hide/show when the toggler is clicked.
-            -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    <li class="nav-item">
-                        <!-- Contact link styled as a button using custom classes -->
-                        <a class="nav-link btn btn-accent-outline" href="contact.html">Contact Us</a>
-                    </li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-accent-outline px-3 ms-lg-3 active" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <div class="container mt-5">
-    </div>
 
-    <!-- Bootstrap JS Bundle (Required for the toggler button to work) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <main>
+        <section class="py-5 text-center bg-primary text-white">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Get In <span class="text-accent">Touch</span></h1>
+                <p class="lead opacity-75">Skip the forms. Chat with us directly on WhatsApp for an instant quote.</p>
+            </div>
+        </section>
 
-<main>
-    <section class="py-5 text-center bg-primary text-white">
-        <div class="container">
-            <h1 class="display-4 fw-bold">Get In Touch</h1>
-            <p class="lead">Let's discuss how we can bring your digital vision to life.</p>
-        </div>
-    </section>
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-7">
+                        <div class="p-5 bg-white shadow-sm rounded-4 border text-center">
+                            <i class="fab fa-whatsapp fa-4x text-success mb-3"></i>
+                            <h2 class="fw-bold mb-3">Chat with an Expert</h2>
+                            <p class="text-muted mb-4 fs-5">Whether you need a Website, SEO strategy, or Branding, our team is ready to respond instantly.</p>
+                            
+                            <a href="https://wa.me/254790322045?text=Hello%20Julls%20Digital,%20I'm%20interested%20in%20your%20services." 
+                               class="btn btn-whatsapp-main btn-lg w-100 py-3 rounded-pill shadow">
+                                <i class="fab fa-whatsapp me-2"></i> Open WhatsApp Chat
+                            </a>
+                            <p class="mt-3 small text-muted">Available Mon - Sat, 8:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
 
-    <section id="contact-form-section" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 mb-4">
-                    <h2 class="mb-4">Send Us a Message</h2>
-                    <form id="contactForm" novalidate>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name *</label>
-                            <input type="text" class="form-control" id="name" required>
-                            <div class="invalid-feedback">Name is required.</div>
+                    <div class="col-lg-5">
+                        <div class="mb-4">
+                            <h3 class="fw-bold mb-4">Contact Details</h3>
+                            <div class="card contact-card mb-3 p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light p-3 rounded-circle me-3"><i class="fas fa-envelope text-accent"></i></div>
+                                    <div><p class="mb-0 fw-bold">Email Us</p><small>ntoitijulius01@gmail.com</small></div>
+                                </div>
+                            </div>
+                            <div class="card contact-card mb-3 p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light p-3 rounded-circle me-3"><i class="fas fa-phone text-accent"></i></div>
+                                    <div><p class="mb-0 fw-bold">Call Us</p><small>0790 322 045</small></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" class="form-control" id="email" required>
-                            <div class="invalid-feedback">A valid email is required.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-lg btn-accent w-100">Send Message</button>
-                    </form>
-                </div>
-                
-                <div class="col-lg-5 mb-4">
-                    <h2 class="mb-4">Contact Details</h2>
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <h5 class="text-accent fw-bold">Email</h5>
-                            <p>ntoitijulius01@gmail.com</p>
-                        </div>
-                        <div class="list-group-item">
-                            <h5 class="text-accent fw-bold">Phone</h5>
-                            <p>0790 322 045</p>
-                        </div>
-                        <div class="list-group-item">
-                            <h5 class="text-accent fw-bold">Address</h5>
-                            <p>Meru town, Meru County, Kenya</p>
-                        </div>
-                        <div class="list-group-item p-0">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.851965576722!2d37.63661138865324!3d0.04944907978103102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1787c8808162f481%3A0x6758c5a4773c333a!2sMeru%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        
+                        <div class="rounded-4 overflow-hidden shadow-sm border" style="height: 250px;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15958.973351336024!2d37.645065!3d0.0514831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17882199f18705f7%3A0x6b67e2a4a7536d7a!2sMeru!5e0!3m2!1sen!2ske!4v1700000000000" 
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julls Digital</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome Icons (for social media) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Google Fonts - Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+        </section>
+    </main>
 
-    <!-- Custom Style Definitions (mimicking style.css) -->
-    <style>
-        :root {
-            --bs-primary: #1E3A8A; /* Deep Blue */
-            --bs-secondary-dark: #0F172A; /* Dark Charcoal for footer background */
-            --bs-accent: #F97316; /* Vibrant Orange */
-            --bs-font-sans-serif: 'Montserrat', sans-serif;
-        }
-
-        body {
-            font-family: var(--bs-font-sans-serif);
-            min-height: 100vh; /* For visual demonstration */
-            display: flex;
-            flex-direction: column;
-        }
-
-        main {
-            flex: 1;
-        }
-
-        .footer-bg {
-            background-color: var(--bs-secondary-dark); /* Use the dark charcoal color */
-            color: var(--bs-light);
-        }
-
-        .text-accent {
-            color: var(--bs-accent) !important;
-        }
-
-        .footer-link {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--bs-accent);
-        }
-
-        .social-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: white;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: var(--bs-accent);
-        }
-    </style>
-</head>
-
-    <!-- Footer Component -->
-    <footer class="footer-bg py-5 mt-auto">
+    <footer class="footer-bg py-5">
         <div class="container">
             <div class="row">
-                
-                <!-- Column 1: Brand and Mission -->
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h4 class="fw-bold mb-3">
-                        <span class="text-accent">Julls</span> Digital
-                    </h4>
-                    <p class="small text-muted">
-                        Innovate. Design. Grow. We partner with ambitious brands to craft powerful, future-proof digital experiences.
-                    </p>
+                <div class="col-lg-4 mb-4">
+                    <h4 class="fw-bold mb-3"><span class="text-accent">Julls</span> Digital</h4>
+                    <p class="small text-muted">Innovate. Design. Grow. We partner with ambitious brands to craft powerful, future-proof digital experiences.</p>
                 </div>
-                
-                <!-- Column 2: Quick Links -->
-                <div class="col-6 col-md-3 col-lg-2 offset-lg-1 mb-4 mb-lg-0">
+                <div class="col-6 col-md-3 col-lg-2 offset-lg-1">
                     <h5 class="fw-bold mb-3 text-white">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="home.html" class="footer-link">Home</a></li>
-                        <li class="mb-2"><a href="index.html" class="footer-link">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="footer-link">Our Services</a></li>
-                        <li class="mb-2"><a href="contact.html" class="footer-link">Get a Quote</a></li>
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Our Services</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 3: Services Summary -->
-                <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
-                    <h5 class="fw-bold mb-3 text-white">Expertise</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><span class="footer-link">Branding Strategy</span></li>
-                        <li class="mb-2"><span class="footer-link">Web Development</span></li>
-                        <li class="mb-2"><span class="footer-link">Digital Graphics</span></li>
-                        <li class="mb-2"><span class="footer-link">SEO & Content</span></li>
-                    </ul>
-                </div>
-                
-                <!-- Column 4: Contact and Social -->
-                <div class="col-lg-3">
+                <div class="col-lg-3 offset-lg-2">
                     <h5 class="fw-bold mb-3 text-white">Connect</h5>
-                    <p class="small text-muted mb-3">www@jullsdigital.com</p>
-                    
                     <div class="d-flex">
-                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
-
             </div>
-
-            <!-- Copyright Line (Bottom border for separation) -->
             <hr class="mt-4 mb-3 border-secondary">
             <div class="text-center small text-muted">
-                &copy; 2025 Julls Digital. All rights reserved. | <a href="#" class="footer-link small">Privacy Policy</a>
+                © 2026 Julls Digital. All rights reserved.
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
