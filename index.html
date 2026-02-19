@@ -41,21 +41,17 @@
         }
         #hero h1 { font-weight: 900; font-size: 4.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); }
 
-        /* --- FLOATING ANIMATION LOGIC --- */
+        /* --- FLOATING ANIMATION --- */
         @keyframes waveFloat {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
         }
 
         .floating-card {
-            border: none;
-            border-radius: 15px;
-            transition: all 0.4s ease-in-out;
-            animation: waveFloat 6s ease-in-out infinite;
-            background: #fff;
+            border: none; border-radius: 15px; transition: all 0.4s ease-in-out;
+            animation: waveFloat 6s ease-in-out infinite; background: #fff;
         }
 
-        /* Staggered Delays for Wave Effect */
         .delay-1 { animation-delay: 0s; }
         .delay-2 { animation-delay: 1.5s; }
         .delay-3 { animation-delay: 3s; }
@@ -72,16 +68,34 @@
             border-radius: 12px; color: var(--bs-accent); margin-bottom: 20px;
         }
 
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
+        }
+        .whatsapp-float:hover { background-color: #128c7e; color: #fff; transform: scale(1.1); }
+
+        /* Tech Icons */
+        .tech-stack-icon { opacity: 0.6; transition: 0.3s; }
+        .tech-stack-icon:hover { opacity: 1; color: var(--bs-accent); transform: scale(1.1); }
+
         /* Footer */
         .footer-bg { background-color: var(--bs-secondary); color: var(--bs-light); }
         .footer-link { color: #ccc; text-decoration: none; transition: 0.3s; }
         .footer-link:hover { color: var(--bs-accent); }
         .social-icon { font-size: 1.5rem; margin-right: 15px; color: white; }
 
-        @media (max-width: 768px) { #hero h1 { font-size: 2.5rem; } }
+        @media (max-width: 768px) { #hero h1 { font-size: 2.5rem; } .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; } }
     </style>
 </head>
 <body>
+
+    <a href="https://wa.me/254XXXXXXXXX" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -107,6 +121,25 @@
                 <div class="d-flex justify-content-center gap-3">
                     <a href="services.html" class="btn btn-lg btn-primary px-4 py-3 border-0" style="background-color: var(--bs-accent) !important;">View Services</a>
                     <a href="contact.html" class="btn btn-lg btn-outline-light px-4 py-3">Get a Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-4 bg-white border-bottom shadow-sm">
+            <div class="container">
+                <div class="row text-center g-4">
+                    <div class="col-md-4">
+                        <h2 class="fw-bold text-primary mb-0">50+</h2>
+                        <p class="text-muted small text-uppercase fw-bold">Projects Launched</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="fw-bold text-primary mb-0">100%</h2>
+                        <p class="text-muted small text-uppercase fw-bold">Client Satisfaction</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="fw-bold text-primary mb-0">24/7</h2>
+                        <p class="text-muted small text-uppercase fw-bold">Expert Support</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -142,16 +175,86 @@
             </div>
         </section>
 
-        <section id="mission" class="py-5 bg-white">
+        <section class="py-5 bg-white">
+            <div class="container text-center mb-5">
+                <h2 class="fw-bold">Our Simple <span class="text-accent">Process</span></h2>
+                <p class="text-muted">We make digital transformation stress-free.</p>
+            </div>
+            
+            <div class="container">
+                <div class="row g-4 text-center">
+                    <div class="col-md-3">
+                        <div class="floating-card p-4 h-100 delay-1 border">
+                            <div class="h1 fw-900 opacity-25 mb-3">01</div>
+                            <h5>Discovery</h5>
+                            <p class="small text-muted">Analyzing your brand goals and audience.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="floating-card p-4 h-100 delay-2 border">
+                            <div class="h1 fw-900 opacity-25 mb-3">02</div>
+                            <h5>Strategy</h5>
+                            <p class="small text-muted">Planning the user experience and SEO.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="floating-card p-4 h-100 delay-3 border">
+                            <div class="h1 fw-900 opacity-25 mb-3">03</div>
+                            <h5>Creative</h5>
+                            <p class="small text-muted">Building graphics and custom code.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="floating-card p-4 h-100 delay-1 border">
+                            <div class="h1 fw-900 opacity-25 mb-3">04</div>
+                            <h5>Launch</h5>
+                            <p class="small text-muted">Speed optimization and going live!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission" class="py-5 bg-light">
             <div class="container">
                 <div class="row align-items-center g-5">
                     <div class="col-lg-6">
-                        <h2 class="display-5 mb-4">Your Vision, <span class="text-accent">Digitally Perfected.</span></h2>
-                        <p class="fs-5 text-muted">Julls Digital is Meru's premier tech agency. We don't just build websites; we build growth engines. From e-commerce to local SEO, we partner with you to win.</p>
+                        <h2 class="display-5 mb-4">Graphics That <span class="text-accent">Command Respect.</span></h2>
+                        <p class="fs-5 text-muted">We don't just design; we build identities. Since you care about branding, we ensure your visual assets are as powerful as your code.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> Custom Logo Design</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> Social Media Branding</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-accent me-2"></i> Modern Web UI Graphics</li>
+                        </ul>
+                        <a href="services.html" class="btn btn-primary px-4 py-2">View Portfolio</a>
                     </div>
                     <div class="col-lg-6">
-                        <img src="julls.png" class="img-fluid rounded-4 shadow-lg" alt="Julls Digital Team">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="floating-card delay-2 overflow-hidden shadow">
+                                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600" class="img-fluid" alt="Branding">
+                                </div>
+                            </div>
+                            <div class="col-6 mt-5">
+                                <div class="floating-card delay-3 overflow-hidden shadow">
+                                    <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bde7?auto=format&fit=crop&w=600" class="img-fluid" alt="Graphics">
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white border-top">
+            <div class="container text-center">
+                <p class="small text-uppercase fw-bold text-muted mb-4">Professional Tech Stack</p>
+                <div class="d-flex flex-wrap justify-content-center gap-5">
+                    <i class="fab fa-wordpress tech-stack-icon fa-3x"></i>
+                    <i class="fab fa-figma tech-stack-icon fa-3x"></i>
+                    <i class="fab fa-adobe tech-stack-icon fa-3x"></i>
+                    <i class="fab fa-google tech-stack-icon fa-3x"></i>
+                    <i class="fab fa-elementor tech-stack-icon fa-3x"></i>
                 </div>
             </div>
         </section>
