@@ -22,7 +22,7 @@
         #main-navbar { background-color: var(--bs-primary); }
         .text-accent { color: var(--bs-accent) !important; }
 
-        /* Sidebar Nav */
+        /* Sidebar Nav - Scrollable on Mobile */
         .nav-pills .nav-link {
             color: var(--bs-primary);
             font-weight: 600;
@@ -32,8 +32,10 @@
             background: white;
             border: 1px solid #e2e8f0;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
         }
-        .nav-pills .nav-link.active { background-color: var(--bs-primary); color: white; border-color: var(--bs-primary); }
+        .nav-pills .nav-link.active { background-color: var(--bs-primary); color: white; border-color: var(--bs-primary); box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2); }
 
         .content-card {
             background: white;
@@ -41,41 +43,24 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #edf2f7;
+            min-height: 600px;
         }
 
         /* WhatsApp Floating Button */
         .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: 0.3s;
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; transition: 0.3s;
         }
         .whatsapp-float:hover { transform: scale(1.1); color: white; }
 
         .btn-whatsapp-inline {
-            background-color: #25d366;
-            color: white;
-            font-weight: 700;
-            border-radius: 50px;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
+            background-color: #25d366; color: white; font-weight: 700; border-radius: 50px;
+            padding: 12px 25px; text-decoration: none; display: inline-flex; align-items: center; transition: 0.3s;
         }
-        .btn-whatsapp-inline:hover { background-color: #128c7e; color: white; }
+        .btn-whatsapp-inline:hover { background-color: #128c7e; color: white; transform: translateY(-2px); }
 
         .footer-bg { background-color: var(--bs-secondary-dark); color: white; }
         .footer-link { color: #ccc; text-decoration: none; transition: 0.3s; }
@@ -95,14 +80,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-warning text-white border-accent px-3 ms-lg-3" href="contact.html">Contact Us</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-warning text-white border-accent px-3 ms-lg-3" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -110,18 +93,30 @@
 
     <main class="container my-5">
         <div class="text-center mb-5">
-            <h1 class="display-5 fw-bold text-primary">Julls <span class="text-accent">Insights</span></h1>
-            <p class="lead">Expert advice for the modern Kenyan entrepreneur.</p>
+            <h1 class="display-5 fw-bold text-primary">Knowledge <span class="text-accent">Center</span></h1>
+            <p class="lead">Free guides to help your business win in the digital economy.</p>
         </div>
 
         <div class="row g-4">
             <div class="col-lg-4">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#post1" type="button">
-                        <i class="fas fa-money-bill-wave me-2 text-accent"></i> M-Pesa for E-commerce
+                <div class="nav flex-column nav-pills sticky-top" style="top: 100px;" id="v-pills-tab" role="tablist">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#art1" type="button">
+                        <i class="fas fa-money-bill-wave me-3 text-accent"></i> M-Pesa E-commerce
                     </button>
-                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#post2" type="button">
-                        <i class="fas fa-map-marker-alt me-2 text-accent"></i> SEO for Meru Shops
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#art2" type="button">
+                        <i class="fas fa-map-marker-alt me-3 text-accent"></i> SEO for Meru Shops
+                    </button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#art3" type="button">
+                        <i class="fas fa-bullhorn me-3 text-accent"></i> Social Media ROI
+                    </button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#art4" type="button">
+                        <i class="fas fa-shield-alt me-3 text-accent"></i> Website Security
+                    </button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#art5" type="button">
+                        <i class="fas fa-fingerprint me-3 text-accent"></i> Brand Identity 101
+                    </button>
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#art6" type="button">
+                        <i class="fas fa-chart-line me-3 text-accent"></i> Tracking Growth
                     </button>
                 </div>
             </div>
@@ -129,21 +124,75 @@
             <div class="col-lg-8">
                 <div class="tab-content content-card" id="v-pills-tabContent">
                     
-                    <div class="tab-pane fade show active" id="post1">
-                        <h2 class="fw-bold text-primary mb-3">M-Pesa Integration: The Secret to High Conversion</h2>
-                        <p>For any business in Kenya, trust is everything. M-Pesa isn't just a payment method; it’s a trust builder. Integrating an automated STK Push on your website allows customers to pay in seconds without ever leaving your site.</p>
-                        <h5 class="fw-bold">Ready to automate your sales?</h5>
-                        <a href="https://wa.me/254790322045?text=I'm%20interested%20in%20M-Pesa%20integration%20for%20my%20site" class="btn-whatsapp-inline mt-2">
-                            <i class="fab fa-whatsapp me-2"></i> Chat with us about M-Pesa
+                    <div class="tab-pane fade show active" id="art1">
+                        <h2 class="fw-bold text-primary">Automating Lipa na M-Pesa</h2>
+                        <p class="text-muted small">Reading Time: 4 mins</p>
+                        <hr>
+                        <p>In Kenya, the easier it is to pay, the more sales you make. We integrate <strong>M-Pesa Daraja API</strong> so your customers receive a STK Push immediately on checkout. No more asking for "Confirmation Messages."</p>
+                        <h5 class="fw-bold mt-4">Why upgrade?</h5>
+                        <ul>
+                            <li>Instant payment confirmation</li>
+                            <li>Reduced "abandoned carts"</li>
+                            <li>Professional customer experience</li>
+                        </ul>
+                        <a href="https://wa.me/254790322045?text=I%20want%20Mpesa%20integration" class="btn-whatsapp-inline mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Get M-Pesa Integration
                         </a>
                     </div>
 
-                    <div class="tab-pane fade" id="post2">
-                        <h2 class="fw-bold text-primary mb-3">Dominating Meru Search Results</h2>
-                        <p>Local SEO ensures that when a client searches for services in Meru, you are the first name they see. This involves optimizing your Google Business Profile and using location-specific content.</p>
-                        <h5 class="fw-bold">Want to rank #1 in Meru?</h5>
-                        <a href="https://wa.me/254790322045?text=Tell%20me%20more%20about%20Local%20SEO%20in%20Meru" class="btn-whatsapp-inline mt-2">
-                            <i class="fab fa-whatsapp me-2"></i> Let's talk SEO
+                    <div class="tab-pane fade" id="art2">
+                        <h2 class="fw-bold text-primary">Dominating Local SEO in Meru</h2>
+                        <p class="text-muted small">Reading Time: 5 mins</p>
+                        <hr>
+                        <p>Most customers search for "Services near me." If your business isn't on the first page of Google for Meru-based searches, you're giving customers to your competitors.</p>
+                        <h5 class="fw-bold mt-4">Our SEO Strategy:</h5>
+                        <ol>
+                            <li>Google Business Profile optimization</li>
+                            <li>Local keyword targeting (e.g., "Best Salon in Meru")</li>
+                            <li>Backlink building from Kenyan directories</li>
+                        </ol>
+                        <a href="https://wa.me/254790322045?text=Help%20me%20with%20SEO" class="btn-whatsapp-inline mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Rank My Business #1
+                        </a>
+                    </div>
+
+                    <div class="tab-pane fade" id="art3">
+                        <h2 class="fw-bold text-primary">Social Media: Likes vs Sales</h2>
+                        <p class="text-muted small">Reading Time: 3 mins</p>
+                        <hr>
+                        <p>Many businesses in Kenya have thousands of followers but zero sales. We help you move from "posting for likes" to "posting for profits" through targeted Meta Ads.</p>
+                        <a href="https://wa.me/254790322045?text=I%20need%20Social%20Media%20Ads" class="btn-whatsapp-inline mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Start Selling on Social
+                        </a>
+                    </div>
+
+                    <div class="tab-pane fade" id="art4">
+                        <h2 class="fw-bold text-primary">Protecting Your Website from Hacks</h2>
+                        <p class="text-muted small">Reading Time: 4 mins</p>
+                        <hr>
+                        <p>Website security is critical for protecting client data. Every site we build at Julls Digital comes with <strong>SSL Encryption</strong> and firewall protection as standard.</p>
+                        <a href="https://wa.me/254790322045?text=Secure%20my%20website" class="btn-whatsapp-inline mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Secure My Website
+                        </a>
+                    </div>
+
+                    <div class="tab-pane fade" id="art5">
+                        <h2 class="fw-bold text-primary">Branding Beyond the Logo</h2>
+                        <p class="text-muted small">Reading Time: 5 mins</p>
+                        <hr>
+                        <p>Branding is the personality of your business. It involves your voice, your colors, and the promise you make to your customers. We create cohesive brand identities that stick in customers' minds.</p>
+                        <a href="https://wa.me/254790322045?text=I%20need%20branding%20services" class="btn-whatsapp-inline mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Brand My Business
+                        </a>
+                    </div>
+
+                    <div class="tab-pane fade" id="art6">
+                        <h2 class="fw-bold text-primary">Measuring Success with Data</h2>
+                        <p class="text-muted small">Reading Time: 3 mins</p>
+                        <hr>
+                        <p>You can't improve what you don't measure. We install <strong>Google Analytics</strong> on every site so you know exactly how many people visited, where they came from, and what they clicked.</p>
+                        <a href="https://wa.me/254790322045?text=Help%20me%20understand%20my%20traffic" class="btn-whatsapp-inline mt-3">
+                            <i class="fab fa-whatsapp me-2"></i> Get Analytics Setup
                         </a>
                     </div>
 
@@ -155,32 +204,32 @@
     <footer class="footer-bg py-5">
         <div class="container">
             <div class="row g-4 text-center text-md-start">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-12">
                     <h4 class="fw-bold mb-3"><span class="text-accent">Julls</span> Digital</h4>
-                    <p class="small text-muted">Innovate. Design. Grow. Crafting digital excellence in Meru.</p>
+                    <p class="small text-muted">Empowering Meru businesses with world-class digital solutions.</p>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 offset-lg-1">
-                    <h5 class="fw-bold mb-3">Company</h5>
+                    <h5 class="fw-bold mb-3">Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="footer-link small">Home</a></li>
-                        <li><a href="about.html" class="footer-link small">About</a></li>
-                        <li><a href="contact.html" class="footer-link small">Contact</a></li>
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About</a></li>
+                        <li><a href="services.html" class="footer-link">Services</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <h5 class="fw-bold mb-3">Services</h5>
+                    <h5 class="fw-bold mb-3">Expertise</h5>
                     <ul class="list-unstyled small text-muted">
-                        <li>Web Design</li>
-                        <li>SEO Strategy</li>
+                        <li>E-commerce</li>
+                        <li>SEO Expert</li>
                         <li>Branding</li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-lg-3">
-                    <h5 class="fw-bold mb-3">Follow Us</h5>
+                    <h5 class="fw-bold mb-3">Connect</h5>
                     <div class="d-flex justify-content-center justify-content-md-start gap-3">
                         <a href="#" class="footer-link fs-4"><i class="fab fa-linkedin"></i></a>
                         <a href="#" class="footer-link fs-4"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="footer-link fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/254790322045" class="footer-link fs-4"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
