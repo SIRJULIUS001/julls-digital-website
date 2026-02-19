@@ -25,6 +25,21 @@
         .bg-primary { background-color: var(--bs-primary) !important; }
         .footer-bg { background-color: var(--bs-secondary-dark); color: var(--bs-light); }
 
+        /* --- NAVBAR CORRECTION --- */
+        #main-navbar { 
+            background-color: transparent; /* Starts clear */
+            transition: background-color 0.4s ease, box-shadow 0.4s ease; 
+        }
+
+        /* This class is triggered by the script below when you scroll */
+        .nav-scrolled { 
+            background-color: var(--bs-primary) !important; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        #main-navbar .nav-link { color: var(--bs-light) !important; transition: color 0.2s; }
+        #main-navbar .nav-link:hover, #main-navbar .nav-link.active { color: var(--bs-accent) !important; }
+
         /* --- WAVE FLOATING ANIMATION --- */
         @keyframes waveFloat {
             0%, 100% { transform: translateY(0); }
@@ -72,7 +87,7 @@
         <i class="fab fa-whatsapp my-float"></i>
     </a>
 
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html"><span class="text-accent">Julls</span> Digital</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
@@ -253,7 +268,7 @@
     </main>
 
     <footer class="footer-bg py-5 mt-auto">
-        <div class="container">
+        <div class="container text-center text-md-start">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h4 class="fw-bold mb-3"><span class="text-accent">Julls</span> Digital</h4>
@@ -265,7 +280,6 @@
                         <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
                         <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
                         <li class="mb-2"><a href="services.html" class="footer-link">Our Services</a></li>
-                        <li class="mb-2"><a href="contact.html" class="footer-link">Get a Quote</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
@@ -273,17 +287,14 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><span class="footer-link">Branding Strategy</span></li>
                         <li class="mb-2"><span class="footer-link">Web Development</span></li>
-                        <li class="mb-2"><span class="footer-link">Digital Graphics</span></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h5 class="fw-bold mb-3 text-white">Connect</h5>
-                    <p class="small text-muted mb-3">hello@jullsdigital.com</p>
                     <div class="d-flex">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon text-white me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon text-white"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -293,5 +304,16 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const navbar = document.getElementById('main-navbar');
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        };
+    </script>
 </body>
 </html>
