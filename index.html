@@ -1,312 +1,211 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julls Digital Navbar</title>
+    <meta name="description" content="Julls Digital - Premier Web Design, SEO, and Branding Agency in Meru, Kenya.">
+    <title>Julls Digital | Web Design & SEO Meru</title>
 
-    <!-- Bootstrap CSS for responsiveness and component styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome Icons (for social media) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Google Fonts - Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <!-- Custom CSS (copied from style.css for branding colors) -->
+    
     <style>
-        /* Color and Font Variables */
         :root {
-            --bs-primary: #1E3A8A; /* Deep Blue */
-            --bs-secondary: #0F172A; /* Dark Charcoal */
-            --bs-accent: #F97316; /* Vibrant Orange */
+            --bs-primary: #1E3A8A;
+            --bs-secondary: #0F172A;
+            --bs-accent: #F97316;
             --bs-light: #F8FAFC;
             --bs-body-color: var(--bs-secondary);
             --bs-font-sans-serif: 'Montserrat', sans-serif;
         }
 
-        /* Global Styles */
-        body {
-            font-family: var(--bs-font-sans-serif);
-            color: var(--bs-body-color);
-        }
+        body { font-family: var(--bs-font-sans-serif); color: var(--bs-body-color); overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6 { font-weight: 700; }
         .text-accent { color: var(--bs-accent) !important; }
-        .bg-primary { background-color: var(--bs-primary) !important; }
-
-        /* Navigation Styling */
-        #main-navbar {
-            background-color: var(--bs-primary);
-            transition: background-color 0.4s, box-shadow 0.4s;
-        }
-        #main-navbar .navbar-brand { font-size: 1.5rem; }
-        #main-navbar .nav-link { color: var(--bs-light) !important; transition: color 0.2s; }
-        #main-navbar .nav-link:hover,
-        #main-navbar .nav-link.active { color: var(--bs-accent) !important; }
-        .scrolled-nav {
-            background-color: rgba(30, 58, 138, 0.95) !important;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Hero Section Styling */
-        #hero {
-            background: linear-gradient(135deg, var(--bs-primary), #0F172A);
-            min-height: 100vh;
-            padding-top: 56px;
-        }
-        #hero h1 {
-            font-weight: 900;
-            font-size: 5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 3rem; }
-        }
-
-        /* Button Styles */
-        .btn-accent {
-            background-color: var(--bs-accent);
-            border-color: var(--bs-accent);
-            color: white;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-        .btn-accent:hover {
-            background-color: #E05A00;
-            border-color: #E05A00;
-            color: white;
-            transform: translateY(-2px);
-        }
-        .btn-secondary-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-        .btn-secondary-outline:hover {
-            background-color: white;
-            color: var(--bs-primary);
-        }
         
-        /* Service Card Styling */
-        .service-card {
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: default;
+        /* Navigation */
+        #main-navbar { background-color: var(--bs-primary); transition: all 0.4s; }
+        #main-navbar .nav-link { color: var(--bs-light) !important; transition: color 0.2s; }
+        #main-navbar .nav-link:hover, #main-navbar .nav-link.active { color: var(--bs-accent) !important; }
+        .scrolled-nav { background-color: rgba(30, 58, 138, 0.98) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+        /* Hero */
+        #hero {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-top: 80px;
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        #hero h1 { font-weight: 900; font-size: 4.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); }
+
+        /* --- FLOATING ANIMATION LOGIC --- */
+        @keyframes waveFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
-        /* Footer Styles */
-        .footer-bg {
-            background-color: var(--bs-secondary); /* Dark Charcoal color */
-            color: var(--bs-light);
+        .floating-card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.4s ease-in-out;
+            animation: waveFloat 6s ease-in-out infinite;
+            background: #fff;
         }
-        .footer-link {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
+
+        /* Staggered Delays for Wave Effect */
+        .delay-1 { animation-delay: 0s; }
+        .delay-2 { animation-delay: 1.5s; }
+        .delay-3 { animation-delay: 3s; }
+
+        .floating-card:hover {
+            animation-play-state: paused;
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
         }
-        .footer-link:hover {
-            color: var(--bs-accent);
+
+        .icon-box {
+            width: 60px; height: 60px; background: var(--bs-light);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 12px; color: var(--bs-accent); margin-bottom: 20px;
         }
-        .social-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: white;
-        }
+
+        /* Footer */
+        .footer-bg { background-color: var(--bs-secondary); color: var(--bs-light); }
+        .footer-link { color: #ccc; text-decoration: none; transition: 0.3s; }
+        .footer-link:hover { color: var(--bs-accent); }
+        .social-icon { font-size: 1.5rem; margin-right: 15px; color: white; }
+
+        @media (max-width: 768px) { #hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <span class="text-accent">Julls</span> Digital
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand fw-bold" href="index.html"><span class="text-accent">Julls</span> Digital</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                         <a class="nav-link btn btn-accent-outline" href="contact.html">Contact Us</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-light ms-lg-3 px-4" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section - Home Page -->
         <section id="hero" class="d-flex align-items-center text-white text-center">
             <div class="container">
-                <h1 class="display-1 fw-bold mb-3">Julls Digital: <br><span class="text-accent">Web Design & SEO in Meru</span></h1>
-                <p class="lead mb-4">Innovate. Design. Grow. We craft compelling digital experiences that drive real business results for Kenyan brands.</p>
-                <a href="services.html" class="btn btn-lg btn-accent me-2">View Services</a>
-                <a href="contact.html" class="btn btn-lg btn-secondary-outline">Get a Quote</a>
+                <h1 class="mb-3">Julls Digital: <br><span class="text-accent">Web Design & SEO</span></h1>
+                <p class="lead mb-4 fs-4">Dominating the digital landscape for Kenyan brands.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="services.html" class="btn btn-lg btn-primary px-4 py-3 border-0" style="background-color: var(--bs-accent) !important;">View Services</a>
+                    <a href="contact.html" class="btn btn-lg btn-outline-light px-4 py-3">Get a Quote</a>
+                </div>
             </div>
         </section>
 
-        <!-- Core Mission Section -->
-        <section id="mission" class="py-5 bg-light">
+        <section class="py-5 bg-light">
+            <div class="container text-center mb-5">
+                <h2 class="fw-bold">How We Help You <span class="text-accent">Grow</span></h2>
+            </div>
             <div class="container">
-                <div class="row text-center">
-                    <div class="col-lg-8 mx-auto">
-                        <h2 class="mb-4">Your Vision, Digitally Perfected by Meru's Top Tech Agency</h2>
-                        <p class="fs-5 text-muted">Julls Digital is a full-service tech agency focused on transforming ambitious ideas into powerful digital realities through expert <strong>Branding</strong>, cutting-edge <strong>Web Development</strong>, and stunning <strong>Digital Graphics</strong>. We partner with you from concept to launch and beyond.</p>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="floating-card p-4 shadow-sm h-100 delay-1">
+                            <div class="icon-box"><i class="fas fa-code fa-lg"></i></div>
+                            <h4>Web Dev</h4>
+                            <p class="text-muted">High-speed, responsive websites tailored for the Kenyan market.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                    <img src="julls.png" class="img-fluid rounded shadow-lg" alt="Julls Digital Team">
+                    <div class="col-md-4">
+                        <div class="floating-card p-4 shadow-sm h-100 delay-2">
+                            <div class="icon-box"><i class="fas fa-search-location fa-lg"></i></div>
+                            <h4>Local SEO</h4>
+                            <p class="text-muted">Helping Meru businesses appear on the first page of Google.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="floating-card p-4 shadow-sm h-100 delay-3">
+                            <div class="icon-box"><i class="fas fa-palette fa-lg"></i></div>
+                            <h4>Branding</h4>
+                            <p class="text-muted">Identity systems that turn viewers into loyal fans.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <section id="mission" class="py-5 bg-white">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <h2 class="display-5 mb-4">Your Vision, <span class="text-accent">Digitally Perfected.</span></h2>
+                        <p class="fs-5 text-muted">Julls Digital is Meru's premier tech agency. We don't just build websites; we build growth engines. From e-commerce to local SEO, we partner with you to win.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="julls.png" class="img-fluid rounded-4 shadow-lg" alt="Julls Digital Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-<section id="featured-blog" class="py-5 bg-white">
-    <div class="container">
-        <div class="row align-items-center mb-5">
-            <div class="col-md-8">
-                <h2 class="fw-bold display-5">Digital <span class="text-accent">Insights</span></h2>
-                <p class="lead text-muted">Latest expert advice for the Kenyan market.</p>
-            </div>
-            <div class="col-md-4 text-md-end">
-                <a href="blog.html" class="btn btn-accent-outline px-4 py-2">View All Topics</a>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 overflow-hidden">
-                    <div class="row g-0">
-                        <div class="col-sm-4">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400" class="img-fluid h-100 object-fit-cover" alt="SEO Meru">
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="card-body">
-                                <span class="badge bg-primary mb-2">SEO Guide</span>
-                                <h5 class="card-title fw-bold">Dominating Search in Meru</h5>
-                                <p class="card-text small text-muted">Learn how local businesses are beating national brands on Google...</p>
-                                <a href="blog.html#post2" class="text-accent fw-bold text-decoration-none">Read the Guide &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 mb-4">
-                <div class="card border-0 shadow-sm h-100 overflow-hidden">
-                    <div class="row g-0">
-                        <div class="col-sm-4">
-                            <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=400" class="img-fluid h-100 object-fit-cover" alt="Branding Kenya">
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="card-body">
-                                <span class="badge bg-warning text-dark mb-2">Identity</span>
-                                <h5 class="card-title fw-bold">The Power of Visuals</h5>
-                                <p class="card-text small text-muted">Why your logo is your first and most important salesperson...</p>
-                                <a href="blog.html#post3" class="text-accent fw-bold text-decoration-none">Read the Guide &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    <!-- Footer Component -->
     <footer class="footer-bg py-5 mt-auto">
         <div class="container">
             <div class="row">
-                
-                <!-- Column 1: Brand and Mission -->
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h4 class="fw-bold mb-3">
-                        <span class="text-accent">Julls</span> Digital
-                    </h4>
-                    <p class="small text-muted">
-                        Innovate. Design. Grow. We partner with ambitious brands to craft powerful, future-proof digital experiences.
-                    </p>
+                    <h4 class="fw-bold mb-3"><span class="text-accent">Julls</span> Digital</h4>
+                    <p class="small text-muted">Innovate. Design. Grow. We partner with ambitious brands to craft powerful, future-proof digital experiences.</p>
                 </div>
-                
-                <!-- Column 2: Quick Links -->
                 <div class="col-6 col-md-3 col-lg-2 offset-lg-1 mb-4 mb-lg-0">
                     <h5 class="fw-bold mb-3 text-white">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
-                        <li class="mb-2"><a href="about.html" class="footer-link">About Us</a></li>
-                        <li class="mb-2"><a href="services.html" class="footer-link">Our Services</a></li>
-                        <li class="mb-2"><a href="contact.html" class="footer-link">Get a Quote</a></li>
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="services.html" class="footer-link">Our Services</a></li>
+                        <li><a href="contact.html" class="footer-link">Get a Quote</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 3: Services Summary -->
                 <div class="col-6 col-md-4 col-lg-2 mb-4 mb-lg-0">
                     <h5 class="fw-bold mb-3 text-white">Expertise</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><span class="footer-link">Branding Strategy</span></li>
-                        <li class="mb-2"><span class="footer-link">Web Development</span></li>
-                        <li class="mb-2"><span class="footer-link">Digital Graphics</span></li>
-                        <li class="mb-2"><span class="footer-link">SEO & Content</span></li>
+                        <li class="footer-link">Branding Strategy</li>
+                        <li class="footer-link">Web Development</li>
+                        <li class="footer-link">Digital Graphics</li>
+                        <li class="footer-link">SEO & Content</li>
                     </ul>
                 </div>
-                
-                <!-- Column 4: Contact and Social -->
                 <div class="col-lg-3">
                     <h5 class="fw-bold mb-3 text-white">Connect</h5>
                     <p class="small text-muted mb-3">ntoitiulius01@gmail.com</p>
-                    
                     <div class="d-flex">
-                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
-
             </div>
-
-            <!-- Copyright Line -->
             <hr class="mt-4 mb-3 border-secondary">
             <div class="text-center small text-muted">
-                &copy; 2025 Julls Digital. All rights reserved. | <a href="#" class="footer-link small">Privacy Policy</a>
+                &copy; 2026 Julls Digital. All rights reserved. | <a href="#" class="footer-link small">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS (Scroll effect) -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mainNavbar = document.getElementById('main-navbar');
-            const scrollThreshold = 100;
-
-            const handleScroll = () => {
-                if (window.scrollY > scrollThreshold) {
-                    mainNavbar.classList.add('scrolled-nav');
-                } else {
-                    mainNavbar.classList.remove('scrolled-nav');
-                }
-            };
-            window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled-nav') : nav.classList.remove('scrolled-nav');
         });
     </script>
 </body>
