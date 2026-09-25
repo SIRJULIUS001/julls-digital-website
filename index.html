@@ -39,15 +39,16 @@
         .scrolled-nav { background-color: rgba(30, 58, 138, 0.98) !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
         /* Hero */
-        #hero {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(30, 58, 138, 0.78)), 
-                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-        #hero h1 { font-weight: 900; font-size: 4.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,0.3); }
+        #hero { background: #0f172a; min-height: 82vh; 
+               padding: 120px 0 100px; display: flex; align-items: center; } 
+        #hero .hero-content { max-width: 900px; margin: 0 auto; } 
+        #hero .hero-label { display: inline-block; font-size: 0.85rem; 
+                           font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bs-accent); margin-bottom: 1.5rem; } 
+        #hero h1 { font-size: clamp(3rem, 7vw, 5.8rem); line-height: 1.02; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1.5rem; } 
+        #hero h1 span { color: var(--bs-accent); } #hero .hero-text { max-width: 700px; margin: 0 auto 2.5rem; color: #cbd5e1; font-size: 1.2rem; line-height: 1.7; }
+        #hero .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; } #hero .hero-actions .btn 
+        { padding: 0.9rem 1.6rem; font-weight: 600; border-radius: 8px; }
+        
 
         /* --- FLOATING ANIMATION --- */
         @keyframes waveFloat {
@@ -134,16 +135,15 @@
     </nav>
 
     <main>
-        <section id="hero" class="d-flex align-items-center text-white text-center">
-            <div class="container">
-                <h1 class="mb-3">Julls Digital: <br><span class="text-accent">Web Design & SEO</span></h1>
-                <p class="lead mb-4 fs-4">Dominating the digital landscape for Kenyan brands.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="services.html" class="btn btn-lg btn-primary px-4 py-3 border-0" style="background-color: var(--bs-accent) !important;">View Services</a>
-                    <a href="contact.html" class="btn btn-lg btn-outline-light px-4 py-3">Get a Quote</a>
-                </div>
-            </div>
-        </section>
+        <section id="hero" class="text-white text-center">
+            <div class="container"> <div class="hero-content"> 
+                <div class="hero-label"> Jull's Digital </div> 
+                <h1> Digital solutions<br> <span>built for growth.</span> </h1> 
+                <p class="hero-text"> We design modern websites and digital experiences that help Kenyan businesses build a stronger online presence. </p> 
+                <div class="hero-actions"> 
+                    <a href="services.html" class="btn btn-primary border-0" style="background-color: var(--bs-accent) !important;"> Explore Services </a>
+            <a href="contact.html" class="btn btn-outline-light"> Start a Project </a> 
+                </div> </div> </div> </section>
 
         <section class="py-4 bg-white border-bottom shadow-sm">
             <div class="container">
